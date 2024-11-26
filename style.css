@@ -1,0 +1,407 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+} /*aceste atribute vor fi aplicate tuturor elementelor html*/
+
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.login::before {
+  font: var(--fa-font-solid);
+  content: "\f007";
+}
+
+.tps::before {
+  font: var(--fa-font-solid);
+  content: "\f1ea";
+}
+.header {
+  min-height: 100vh; /*elementul va ocupa inaltimea ferestrei de vizualizare a browserului*/
+  width: 100%; /*seteaza latimea elementului la 100% din latimea ferestrei*/
+  background-image: linear-gradient(rgba(4, 9, 30, 0.2), rgba(4, 9, 30, 0.2)),
+    url(gri.jpg); /*seteeza imaginea de fundal a headerului + un gradient liniar de transparenta 0.2*/
+  background-repeat: no-repeat; /*imaginea de fundal nu se va repeta*/
+  background-attachment: fixed; /*imagine de fundal va ramane fixata, nu se va derula cu pagina*/
+  background-position: left-center; /*seteaza pozitita fundalului de la stanga-centru*/
+  background-size: cover; /*imaginea acopera intreg fundalul*/
+  position: relative;
+} /*proprietatile care vor fi aplicate elementelor clasei header*/
+
+nav {
+  display: flex; /*elementele child vor fi automat aliniate ca si coloane*/
+  padding: 2% 6%; /*padding-top + padding-bottom = 2% din latimea elementului
+  left + right padding = 6% din latime*/
+  justify-content: space-between; /*aliniaza elementele adaugand spatiu intre acestea*/
+  align-items: center; /*elementele sunt pozitionate in centrul containerului*/
+}
+nav img {
+  width: 150px;
+}
+.nav-links {
+  flex: 1;
+  text-align: right;
+}
+.nav-links ul li {
+  list-style: none;
+  display: inline-block; /*afiseaza elementele listei orizontal*/
+  padding: 8px, 12px;
+  position: relative;
+}
+.nav-links ul li a {
+  color: #092e53; /*culoare text de pe navbar*/
+  text-decoration: none;
+  font-size: 18px;
+}
+.nav-links ul li ::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #537ebf;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+} /*adauga linia orizontala sub fiecare element al listei din bara(initial are 0% din latimea elementelor)*/
+.nav-links ul li :hover::after {
+  width: 100%;
+} /*dupa tranzitia de 0.5s linia orizontala va avea 100% din latimea elementelor*/
+.text-box {
+  width: 90%;
+  color: #003366;
+  position: absolute; /**pozitioneaza in raport cu ultimul element*/
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, 50%); /*muta elementul in raport cu axa x si y*/
+  text-align: center;
+}
+.text-box h1 {
+  font-size: 66px;
+  color: #003366;
+}
+.text-box p {
+  margin: 10px 0 40px;
+  font-size: 25px;
+  color: #003366;
+}
+.my-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #003366;
+  border: 1px solid #f1e6dd;
+  padding: 12px 14px;
+  font-size: 15px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.my-button:hover {
+  border: 1px solid #a37b65;
+  background: #a37b65;
+  transition: 1s;
+}
+
+nav .fa {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .text-box h1 {
+    font-size: 23px;
+  }
+  .nav-links ul li {
+    display: block;
+  }
+  .nav-links {
+    position: fixed;
+    background: #875235;
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    right: -200px;
+    text-align: left;
+    z-index: 2;
+    transition: 1s;
+  }
+  nav .fa {
+    display: block;
+    color: #003366;
+    margin: 10px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .nav-links ul {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1150px) {
+  .text-box h1 {
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 1150px) {
+  .nav-links ul li a {
+    color: #003366; /*culoare text de pe navbar*/
+    text-decoration: none;
+    font-size: 20px;
+  }
+}
+
+/*--------educatie-------*/
+
+.education {
+  background-color: #bab8b8;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding-top: 20px;
+}
+h1 {
+  color: #003366;
+  font-size: 36px;
+  font-weight: 600;
+}
+p {
+  color: #003366;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 22px;
+  padding: 10px;
+}
+.row {
+  /*margin-top: 2%;*/
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+.ed-col {
+  flex-basis: 32%; /*setare lungime initiala*/
+  border-radius: 10\px; /*rotunjeste marginile elementului cu 10px*/
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.ed-col img {
+  width: 100%;
+  display: block;
+}
+.layer {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 1s;
+}
+.layer:hover {
+  background: rgba(181, 189, 207, 0.926);
+}
+.layer h3 {
+  width: 100%;
+  font-weight: 500;
+  color: #17416a;
+  font-size: 17px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  opacity: 0;
+  transition: 1s;
+}
+.layer:hover h3 {
+  bottom: 49%;
+  opacity: 1;
+}
+@media (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/*-----------hobbies------------*/
+.hobbies {
+  background-color: #929292;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding-top: 20px;
+}
+.hobby-col {
+  flex-basis: 31%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  text-align: left;
+  padding-top: 20px;
+}
+.hobby-col img {
+  width: 100%;
+  border-radius: 10px;
+}
+.hobby-col p {
+  padding: 0;
+}
+.hobby-col h3 {
+  margin-top: 16px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/*---------------competences---------*/
+.competences {
+  background-color: #a4a1a1;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding-top: 20px;
+}
+.comp-col {
+  flex-basis: 31%;
+  background: rgb(84, 131, 206);
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  transition: 1s;
+}
+h3 {
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #cccfe6;
+}
+.comp-col:hover {
+  box-shadow: 0 0 20px 0px rgb(90, 87, 87);
+}
+/*---------footer-----*/
+.footer {
+  background-color: #4a90e2;
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+}
+h4 {
+  margin-bottom: 25px;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #003366;
+}
+.icons .fa {
+  color: #003366;
+  margin: 0 13px;
+  cursor: pointer;
+  padding: 18px 0;
+}
+
+/*-------About me page----------*/
+.sub-header {
+  height: 50vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.3), rgba(4, 9, 30, 0.3)),
+    url(images/banner.png);
+  background-position: bottom-center;
+  background-attachment: local;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  color: #003366;
+} /*caracteristicile clasei sub-header*/
+.sub-header h1 {
+  font-size: 35px;
+}
+
+.about-me {
+  background-color: #d3d3d3;
+  width: 100%;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.about-col {
+  flex-basis: 40%;
+  padding: 20px 2px;
+}
+
+.about-col img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-col h3 {
+  color: #003366;
+  padding: 15px 0 15px;
+  text-align: left;
+  font-size: 30px;
+}
+.about-col p {
+  color: #003366;
+  padding: 15px 0 px 15px;
+  text-align: left;
+  font-size: 17px;
+}
+.color-btn {
+  border: 1px solid #a37b65;
+  background: transparent;
+  color: #a37b65;
+}
+
+.color-btn:hover {
+  color: #003366;
+}
+/*-------------contact------------------*/
+
+.contact {
+  width: 100%;
+  margin: auto;
+  background-color: #d3d3d3;
+}
+
+.contact-col {
+  flex-basis: 40%;
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+
+.contact-col div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.contact-col div .fa {
+  font-size: 28px;
+  color: #246baa;
+  margin: 10px;
+  margin-right: 30px;
+}
+
+.contact-col div p {
+  padding: 0;
+}
+
+.contact-col div h5 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 400;
+}
+
+.contact-col input,
+.contact-col textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 17px;
+  outline: none;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
